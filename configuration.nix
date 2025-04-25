@@ -70,6 +70,7 @@
       chromium
       git
       tmux
+      ghostty
     ];
   };
 
