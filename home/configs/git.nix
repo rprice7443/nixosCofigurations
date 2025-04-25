@@ -9,6 +9,7 @@ programs.git = {
       "pl" = "pull";
       "sw" = "switch";
       "sc" = "switch -c";
+      "c" = "commit -m";
     };
     extraConfig = {
       user.name = "Riley Price";
