@@ -67,10 +67,6 @@
     ]; 
     packages = with pkgs; [
       tree
-      chromium
-      git
-      tmux
-      ghostty
     ];
   };
 
