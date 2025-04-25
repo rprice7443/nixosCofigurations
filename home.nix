@@ -79,6 +79,16 @@
     };
   };
 
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    size = 24;
+    x11 = {
+      enable = true;
+      defaultCursor = "Adwaita";
+    };
+  };
+
   home.keyboard = {
     layout = "us";
     variant = "dvorak";
@@ -95,7 +105,8 @@
     enable = true;
     config = rec { 
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "ghostty";
+      defaultWorkspace = "1";
       input = {
         "type:keyboard" = {
           xkb_layout = "us";
