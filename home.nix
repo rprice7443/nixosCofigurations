@@ -3,6 +3,7 @@
 {
   imports = [
     ./home/configs/git.nix
+    ./home/configs/tmux.nix
   ];
 
   home = {
