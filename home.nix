@@ -98,7 +98,7 @@
       terminal = "kitty";
         
     };
-  }
+  };
 
 
   # Let Home Manager install and manage itself.
