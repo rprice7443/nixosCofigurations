@@ -89,7 +89,16 @@
     test 
   '';
 
-  home.file.".config/sway/config".source = ./configs/swayconfig;
+  # home.file.".config/sway/config".source = ./configs/swayconfig;
+
+  wayland.windowManager.sway = {
+    enable = true;
+    config = rec { 
+      modifier = "Mod4";
+      terminal = "kitty";
+        
+    };
+  }
 
 
   # Let Home Manager install and manage itself.
