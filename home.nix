@@ -96,6 +96,12 @@
     config = rec { 
       modifier = "Mod4";
       terminal = "kitty";
+      input = {
+        "type:keyboard" = {
+          xkb_layout = "us";
+          xkb_variant = "dvorak";
+        };
+      };
         
     };
   };
