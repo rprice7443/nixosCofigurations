@@ -4,6 +4,7 @@
   imports = [
     ./home/configs/git.nix
     ./home/configs/tmux.nix
+    ./home/configs/helix.nix
   ];
 
   home = {
