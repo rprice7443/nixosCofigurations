@@ -5,14 +5,15 @@
     ./home/configs/git.nix
     ./home/configs/tmux.nix
     ./home/configs/helix.nix
+    ./home/configs/joplin.nix
   ];
 
   home = {
-    
+
     username = "riley";
-    
-    homeDirectory = "/home/riley";  
-    
+
+    homeDirectory = "/home/riley";
+
     stateVersion = "24.11"; # Please read the comment before changing.
 
     packages = with pkgs; [
@@ -26,15 +27,15 @@
       btop
 
       # battery status
-      acpi 
+      acpi
 
       # audio mixer
       pulsemixer
     ];
-    
-    file = {};
 
-    sessionVariables = {};
+    file = { };
+
+    sessionVariables = { };
 
     pointerCursor = {
       name = "Adwaita";
@@ -52,9 +53,6 @@
     };
 
   };
-  
-  
-  
 
   programs.bash = {
     enable = true;
@@ -66,7 +64,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    config = rec { 
+    config = rec {
       modifier = "Mod4";
       terminal = "ghostty";
       defaultWorkspace = "1";
@@ -76,10 +74,9 @@
           xkb_variant = "dvorak";
         };
       };
-        
+
     };
   };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
