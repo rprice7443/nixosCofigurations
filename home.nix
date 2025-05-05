@@ -68,8 +68,7 @@
       modifier = "Mod4";
       terminal = "ghostty";
       defaultWorkspace = "1";
-      input =
-      let rec {
+      input = let
         # Framework internal components
         values = [
           "1:1:AT_Translated_Set_2_keyboard"
@@ -78,15 +77,17 @@
           "0:1:Power_Button"
           "0:6:Video_Bus"
         ];
-        
+
         settings = {
           xkb_layout = "us";
           xkb_variant = "dvorak";
         };
 
-        applyAll = x : {name = x; value = settings;};
-      } in
-        builtins.listToAttrs (map applyAll values);
+        applyAll = x: {
+          name = x;
+          value = settings;
+        };
+      in builtins.listToAttrs (map applyAll values);
     };
   };
 
