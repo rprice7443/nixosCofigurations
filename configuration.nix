@@ -75,6 +75,15 @@
 
   security.polkit.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  services.blueman = {
+    enable = true;
+  };
+
   # enable flakes, etc
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
