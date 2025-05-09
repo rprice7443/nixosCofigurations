@@ -1,6 +1,5 @@
-{config, pkgs, ...} :
-{
-programs.git = {
+{ config, pkgs, ... }: {
+  programs.git = {
     enable = true;
     aliases = {
       "ps" = "push";
@@ -15,6 +14,7 @@ programs.git = {
       user.name = "Riley Price";
       user.email = "rprice7443@gmail.com";
       init.defaultBranch = "main";
+      push.autoSetupRemote = "true";
+    };
   };
-};
 }
