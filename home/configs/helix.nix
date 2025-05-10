@@ -1,5 +1,4 @@
-{config, pkgs, ...}:
-{
+{ config, pkgs, ... }: {
   programs.helix = {
     enable = true;
     settings = {
@@ -10,18 +9,24 @@
         select = "underline";
       };
     };
-    
-    languages.language = [{
+
+    languages.language = [
+      {
         name = "nix";
         auto-format = true;
         formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-    }];
+      }
+      {
+        name = "go";
+        auto-format = true;
+      }
+    ];
 
     themes = {
-        autumn_night_transparent = {
-          "inherits" = "autumn_night";
-          "ui.background" = { };
+      autumn_night_transparent = {
+        "inherits" = "autumn_night";
+        "ui.background" = { };
       };
     };
   };
-}         
+}
