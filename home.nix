@@ -6,6 +6,7 @@
     ./home/configs/tmux.nix
     ./home/configs/helix.nix
     ./home/configs/joplin.nix
+    ./home/configs/latex.nix
   ];
 
   home = {
