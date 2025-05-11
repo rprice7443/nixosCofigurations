@@ -3,10 +3,13 @@
     enable = true;
     settings = {
       theme = "autumn_night_transparent";
-      editor.cursor-shape = {
-        normal = "block";
-        insert = "bar";
-        select = "underline";
+      editor = {
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        bufferline = "multiple";
       };
     };
 
