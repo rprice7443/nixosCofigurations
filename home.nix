@@ -7,6 +7,7 @@
     ./home/configs/helix.nix
     ./home/configs/joplin.nix
     ./home/configs/latex.nix
+    ./home/configs/zathura.nix
   ];
 
   home = {
