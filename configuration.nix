@@ -5,21 +5,23 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
+  # enable fonts
+  fonts.enableDefaultPackages = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -38,23 +40,21 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.riley = {
     isNormalUser = true;
-    extraGroups = [ 
-        "wheel" # Enable ‘sudo’ for the user. 
-        "networkmanager" 
-        "video" # So I can change the brightness...
-    ]; 
-    packages = with pkgs; [
-      tree
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "networkmanager"
+      "video" # So I can change the brightness...
     ];
+    packages = with pkgs; [ tree ];
   };
 
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     grim # screenshot functionality
-     slurp # screenshot functionality
-     wl-clipboard # wl-copy and wl-paste
-     mako
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste
+    mako
   ];
 
   services.gnome.gnome-keyring.enable = true;
@@ -80,9 +80,7 @@
     powerOnBoot = true;
   };
 
-  services.blueman = {
-    enable = true;
-  };
+  services.blueman = { enable = true; };
 
   # enable flakes, etc
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
