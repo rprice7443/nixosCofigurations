@@ -31,6 +31,9 @@
 
       # audio mixer
       pulsemixer
+
+      # unzip files
+      unzip
     ];
 
     file = { };
