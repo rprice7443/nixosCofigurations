@@ -10,6 +10,10 @@
           select = "underline";
         };
         bufferline = "multiple";
+        rulers = [ 80 ];
+        statusline = {
+          left = [ "mode" "spinner" "version-control" "file-name" ];
+        };
       };
     };
 
