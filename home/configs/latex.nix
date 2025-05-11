@@ -1,1 +1,6 @@
-{ config, pkgs, ... }: { programs.texlive = { enable = true; }; }
+{ config, pkgs, ... }: {
+  programs.texlive = {
+    enable = true;
+    packageSet = pkgs.texlive.scheme-small;
+  };
+}
