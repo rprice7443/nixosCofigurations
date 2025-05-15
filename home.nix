@@ -8,6 +8,7 @@
     ./home/configs/joplin.nix
     ./home/configs/latex.nix
     ./home/configs/zathura.nix
+    ./home/configs/vscode.nix
   ];
 
   home = {
