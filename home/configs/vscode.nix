@@ -6,5 +6,5 @@
     profiles.default.extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
     ]
-  }
+  };
 }
