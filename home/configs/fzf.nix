@@ -1,1 +1,6 @@
-{ config, pkgs, ... }: { programs.fzf = { enableBashIntegration = true; }; }
+{ config, pkgs, ... }: {
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+}
