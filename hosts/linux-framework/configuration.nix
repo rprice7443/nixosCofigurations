@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
 
-    ../../nixos/modules/sway.nix
+    ../../nixos/flavors/desktop/sway.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
