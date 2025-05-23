@@ -74,6 +74,15 @@
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste
     mako
+
+    #  Gnome packages 
+    adwaita-icon-theme
+    gnome-themes-extra
+    gnomeExtensions.appindicator
+  ];
+
+  services.udev.packages = with pkgs; [
+    gnome-settings-daemon
   ];
 
   security.polkit.enable = true;
