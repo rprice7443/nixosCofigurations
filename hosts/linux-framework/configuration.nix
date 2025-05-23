@@ -8,6 +8,8 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
+
+    ../../nixos/modules/sway.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -42,18 +44,6 @@
       pulse.enable = true;
     };
 
-    gnome.gnome-keyring.enable = true;
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-          user = "greeter";
-        };
-      };
-    };
-
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -78,11 +68,6 @@
     wl-clipboard # wl-copy and wl-paste
     mako
   ];
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   security.polkit.enable = true;
 
