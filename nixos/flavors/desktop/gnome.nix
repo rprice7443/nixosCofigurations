@@ -29,6 +29,6 @@
     );
 
     programs.dconf.enable = true;
-    environment.systemPackages = with pkgs; [ gnome.gnome-tweaks ];
+    environment.systemPackages = with pkgs; [ gnome-tweaks ];
   };
 }
