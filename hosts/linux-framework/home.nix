@@ -2,14 +2,34 @@
 
 {
   imports = [
-    ./home/configs/git.nix
-    ./home/configs/tmux.nix
-    ./home/configs/helix.nix
-    ./home/configs/joplin.nix
-    ./home/configs/latex.nix
-    ./home/configs/zathura.nix
-    ./home/configs/vscode.nix
-    ./home/configs/fzf.nix
+    ../../home/features/cli/git.nix
+    ../../home/features/cli/tmux.nix
+    ../../home/features/cli/helix.nix
+    ../../home/features/desktop/joplin.nix
+    ../../home/features/cli/latex.nix
+    ../../home/features/desktop/zathura.nix
+    ../../home/features/desktop/vscode.nix
+    ../../home/features/cli/fzf.nix
+  ];
+
+  home.packages = with pkgs; [
+    chromium
+
+    # terminal mainstays
+    git
+    tmux
+    ghostty
+    ripgrep
+    btop
+
+    # battery status
+    acpi
+
+    # audio mixer
+    pulsemixer
+
+    # unzip files
+    unzip
   ];
 
   home = {
@@ -19,26 +39,6 @@
     homeDirectory = "/home/riley";
 
     stateVersion = "24.11"; # Please read the comment before changing.
-
-    packages = with pkgs; [
-      chromium
-
-      # terminal mainstays
-      git
-      tmux
-      ghostty
-      ripgrep
-      btop
-
-      # battery status
-      acpi
-
-      # audio mixer
-      pulsemixer
-
-      # unzip files
-      unzip
-    ];
 
     file = { };
 
