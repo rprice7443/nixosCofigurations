@@ -13,7 +13,8 @@
     ../../home/features/cli/bash.nix
 
     # Use Sway
-    ../../home/features/desktop/sway.nix
+    # ../../home/features/desktop/sway.nix
+    ../../home/features/desktop/gnome.nix
   ];
 
   home.packages = with pkgs; [
