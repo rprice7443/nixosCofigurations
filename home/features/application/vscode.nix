@@ -2,8 +2,8 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    mutableExtensionsDir = false;
-    profiles = [ default ];
+    # mutableExtensionsDir = false;
+    # profiles = [ default ];
 
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
