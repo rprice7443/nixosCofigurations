@@ -1,11 +1,11 @@
-wayland.windowManager.sway = {
+{ pkgs, ... }: {
+  wayland.windowManager.sway = {
     enable = true;
     config = rec {
       modifier = "Mod4";
       terminal = "ghostty";
       defaultWorkspace = "1";
-      input =
-      let
+      input = let
         # Framework internal components
         values = [
           "1:1:AT_Translated_Set_2_keyboard"
@@ -24,7 +24,7 @@ wayland.windowManager.sway = {
           name = x;
           value = settings;
         };
-      in
-        builtins.listToAttrs (map applyAll values);
+      in builtins.listToAttrs (map applyAll values);
     };
-};
+  };
+}
