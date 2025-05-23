@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../nixos/hardware/bluetooth/bluetooth.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -53,7 +54,6 @@
       };
     };
 
-    blueman.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -85,11 +85,6 @@
   };
 
   security.polkit.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
 
   # enable flakes, etc
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
