@@ -2,7 +2,8 @@
 {
   dconf.settings = {
     "/org/gnome/desktop/input-sources" = {
-      sources = [('xkb', 'us+dvorak')];
+      show-all-sources = true;
+      sources = [(mkTuple ['xkb' 'us+dvorak'])];
     };
   };
 }
