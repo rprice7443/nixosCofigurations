@@ -2,14 +2,21 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
 
-    ../../nixos/flavors/desktop/sway.nix
+    # ../../nixos/flavors/desktop/sway.nix
+    ../../nixos/flavors/desktop/gnome.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -72,7 +79,10 @@
   security.polkit.enable = true;
 
   # enable flakes, etc
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -82,4 +92,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-

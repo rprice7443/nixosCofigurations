@@ -1,12 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   config = {
     services.xserver = {
       enable = true;
-      dispalyManager.gdm.enable = true;
+      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
 
-    environment.gnome.excludePackages = (with pkgs; [ gnome-photos gnome-tour ])
+    environment.gnome.excludePackages =
+      (with pkgs; [
+        gnome-photos
+        gnome-tour
+      ])
       ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs.git = {
     enable = true;
     aliases = {
@@ -9,6 +10,7 @@
       "sw" = "switch";
       "sc" = "switch -c";
       "c" = "commit -m";
+      "ac" = "!git add -a && git commit -m";
     };
     extraConfig = {
       user.name = "Riley Price";
