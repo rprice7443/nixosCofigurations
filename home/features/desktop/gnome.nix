@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+with lib.hm.gvariant;
 {
   dconf.settings = {
     "/org/gnome/desktop/input-sources" = {
