@@ -7,13 +7,12 @@
       desktopManager.gnome.enable = true;
     };
 
-    environment.gnome.excludePackages =
-      (with pkgs; [
+    environment.gnome.excludePackages = (
+      with pkgs;
+      [
         gnome-photos
         gnome-tour
         gedit
-      ])
-      ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music
         epiphany # web browser
@@ -26,7 +25,8 @@
         yelp # Help view
         gnome-contacts
         gnome-initial-setup
-      ]);
+      ]
+    );
 
     programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [ gnome.gnome-tweaks ];
