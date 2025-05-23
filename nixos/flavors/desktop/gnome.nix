@@ -10,11 +10,8 @@
     environment.gnome.excludePackages = (
       with pkgs;
       [
-        gnome-photos
-        gnome-tour
         gedit
         cheese # webcam tool
-        gnome-music
         epiphany # web browser
         geary # email reader
         gnome-characters
@@ -23,8 +20,11 @@
         hitori # sudoku game
         atomix # puzzle game
         yelp # Help view
-        gnome-contacts
-        gnome-initial-setup
+
+        gnome-initial-setup gnome-tour
+        gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
+        gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
+        gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
       ]
     );
 
