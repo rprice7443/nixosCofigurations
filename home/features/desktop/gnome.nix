@@ -17,5 +17,12 @@ with lib.hm.gvariant;
         ])
       ];
     };
+
+    "/org/gnome/shell/favorite-apps" = [
+      "chromium-browser.desktop" 
+      "codium.desktop" 
+      "com.mitchellh.ghostty.desktop" 
+      "org.gnome.Nautilus.desktop"
+      ];
   };
 }
