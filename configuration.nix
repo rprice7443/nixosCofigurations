@@ -10,12 +10,19 @@
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+
+    # Easiest to use and most distros use this by default.
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -26,12 +33,27 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services = {
+    printing.enable = true;
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+
+    gnome.gnome-keyring.enable = true;
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+          user = "greeter";
+        };
+      };
+    };
+
+    blueman.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -57,20 +79,9 @@
     mako
   ];
 
-  services.gnome.gnome-keyring.enable = true;
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-  };
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
-      };
-    };
   };
 
   security.polkit.enable = true;
@@ -79,8 +90,6 @@
     enable = true;
     powerOnBoot = true;
   };
-
-  services.blueman = { enable = true; };
 
   # enable flakes, etc
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
