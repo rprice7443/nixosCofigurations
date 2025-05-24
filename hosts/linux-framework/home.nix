@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     chromium
+    anki
 
     # terminal mainstays
     git
