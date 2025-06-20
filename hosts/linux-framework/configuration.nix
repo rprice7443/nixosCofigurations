@@ -15,8 +15,8 @@
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
 
-    # ../../nixos/flavors/desktop/sway.nix
-    ../../nixos/flavors/desktop/gnome.nix
+    ../../nixos/flavors/desktop/sway.nix
+    # ../../nixos/flavors/desktop/gnome.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -75,7 +75,7 @@
     wl-clipboard # wl-copy and wl-paste
     mako
 
-    #  Gnome packages 
+    #  Gnome packages
     adwaita-icon-theme
     gnome-themes-extra
     gnomeExtensions.appindicator

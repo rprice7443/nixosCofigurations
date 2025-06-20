@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.bash = {
-    enable = true;
+    enable = false;
     shellAliases = {
       "ll" = "ls -alh";
       ".." = "cd ..";
     };
   };
 }
-

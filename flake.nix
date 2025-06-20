@@ -7,20 +7,41 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations."linux-framework" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/linux-framework/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            users.riley = import ./hosts/linux-framework/home.nix;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+        system = "x86_64-linux";
+        pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+    in
+    {
+      nixosConfigurations."linux-framework" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/linux-framework/configuration.nix
+        ];
+      };
+
+      homeManagerModules = {
+        home = import ./hosts/linux-framework/home.nix;
+      };
+
+      homeConfigurations = {
+        "riley" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [ self.homeManagerModules.home ];
+
+          extraSpecialArgs = {
+            inherit inputs;
           };
-        }
-      ];
+
+        };
+      };
     };
-  };
 
 }
