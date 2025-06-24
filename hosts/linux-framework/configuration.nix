@@ -34,6 +34,8 @@
     networkmanager.enable = true;
   };
 
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
@@ -52,6 +54,9 @@
     };
 
   };
+
+  programs.zsh.enable = true;
+  users.users.riley.shell = pkgs.zsh;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;

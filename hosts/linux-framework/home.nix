@@ -37,6 +37,9 @@
 
     # unzip files
     unzip
+
+    zsh
+    oh-my-zsh
   ];
 
   home = {
