@@ -40,6 +40,9 @@
 
     zsh
     oh-my-zsh
+
+    # file manager
+    xfce.thunar
   ];
 
   home = {

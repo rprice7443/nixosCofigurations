@@ -14,8 +14,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
+    ../../nixos/flavors/desktop/kde.nix
 
-    ../../nixos/flavors/desktop/sway.nix
+    # ../../nixos/flavors/desktop/sway.nix
     # ../../nixos/flavors/desktop/gnome.nix
   ];
 
