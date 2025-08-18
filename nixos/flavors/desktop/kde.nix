@@ -1,6 +1,6 @@
 {
-  services,
   pkgs,
+  ...
 }:
 {
   services = {

@@ -19,8 +19,10 @@
   ];
 
   home.packages = with pkgs; [
+    firefox
     chromium
     anki
+    xz
 
     # terminal mainstays
     git
@@ -43,6 +45,8 @@
 
     # file manager
     xfce.thunar
+
+    uv
   ];
 
   home = {
