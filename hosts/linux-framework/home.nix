@@ -30,6 +30,25 @@
     ghostty
     ripgrep
     btop
+    helix
+    jq
+    bat
+    starship
+    picocom
+    mise
+    gnupg
+    pinentry
+    nasm
+    sshpass
+    sway
+    wdisplays
+    fuzzel
+    slurp
+    grip
+    ffmpeg
+    arp-scan
+    julia_110
+    atuin
 
     # battery status
     acpi

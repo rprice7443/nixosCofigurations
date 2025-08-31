@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs.helix = {
     enable = true;
     settings = {
@@ -12,7 +13,12 @@
         bufferline = "multiple";
         rulers = [ 80 ];
         statusline = {
-          left = [ "mode" "spinner" "version-control" "file-name" ];
+          left = [
+            "mode"
+            "spinner"
+            "version-control"
+            "file-name"
+          ];
         };
       };
     };
@@ -26,6 +32,10 @@
       {
         name = "go";
         auto-format = true;
+      }
+      {
+        name = "rust";
+        auto-format = false;
       }
     ];
 
