@@ -80,6 +80,7 @@
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste
     mako
+    libsecret
 
     #  Gnome packages
     # adwaita-icon-theme
@@ -116,6 +117,9 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   programs.light.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Most users should NEVER change this value after the initial install, for any reason
   system.stateVersion = "24.11"; # Did you read the comment?

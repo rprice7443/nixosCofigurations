@@ -17,7 +17,7 @@
       eval "$(${pkgs.mise}/bin/mise activate zsh)"
       eval "$(starship init zsh)"
       eval "$(atuin init zsh)"
-      alias nhx='nix develop --command bash -C ${pkgs.helix}/bin/helix'
+      alias nhx='nix develop --command ${pkgs.helix}/bin/hx'
     '';
 
     oh-my-zsh = {
