@@ -37,6 +37,10 @@
         name = "rust";
         auto-format = false;
       }
+      {
+        name = "typst";
+        auto-format = true;
+      }
     ];
 
     themes = {
