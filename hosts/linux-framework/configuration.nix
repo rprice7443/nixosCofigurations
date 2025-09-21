@@ -14,7 +14,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
-    ../../nixos/flavors/desktop/kde.nix
+    # ../../nixos/flavors/desktop/kde.nix
 
     # ../../nixos/flavors/desktop/sway.nix
     # ../../nixos/flavors/desktop/gnome.nix
@@ -100,19 +100,19 @@
     "flakes"
   ];
 
-  # programs.sway = {
-  #   enable = true;
-  #   package = null;
-  # };
+  programs.sway = {
+    enable = true;
+    package = null;
+  };
 
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #     };
-  #   };
-  # };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      };
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
