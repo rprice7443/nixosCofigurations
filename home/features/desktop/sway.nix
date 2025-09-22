@@ -6,6 +6,11 @@
       modifier = "Mod4";
       terminal = "ghostty";
       defaultWorkspace = "workspace number 1";
+      bars = [
+        { command = "${pkgs.waybar}/bin/waybar"; }
+      ];
+
+      menu = "${pkgs.fuzzel}/bin/fuzzel";
       input =
         let
           # Framework internal components
@@ -28,6 +33,33 @@
           };
         in
         builtins.listToAttrs (map applyAll values);
+    };
+  };
+
+  programs.waybar = {
+    enable = true;
+
+    settings = {
+      mainBar = {
+        position = "bottom";
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "wlr/taskbar"
+        ];
+
+        modules-center = [ "clock" ];
+
+        modules-right = [
+          "pulseaudio"
+          "network"
+          "battery"
+        ];
+
+        "pulseaudio" = {
+          "on-click" = "pavucontrol";
+        };
+      };
     };
   };
 }
