@@ -8,5 +8,6 @@
         zlib
       ]
     );
+    mutableExtensionsDir = true;
   };
 }

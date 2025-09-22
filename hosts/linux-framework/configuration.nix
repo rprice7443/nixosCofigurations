@@ -59,6 +59,17 @@
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
 
+  programs.nix-ld = {
+    enable = true;
+
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+    ];
+  };
+
+  services.envfs.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
