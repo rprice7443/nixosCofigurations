@@ -6,6 +6,8 @@
       ps: with ps; [
         rustup
         zlib
+        openssl.dev
+        pkg-config
       ]
     );
     mutableExtensionsDir = true;
