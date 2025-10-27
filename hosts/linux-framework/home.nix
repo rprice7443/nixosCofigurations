@@ -50,6 +50,8 @@
     julia_110
     atuin
 
+    zsl
+
     # battery status
     acpi
 

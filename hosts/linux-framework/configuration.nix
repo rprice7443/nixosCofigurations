@@ -16,7 +16,7 @@
     ../../nixos/hardware/bluetooth/bluetooth.nix
     # ../../nixos/flavors/desktop/kde.nix
 
-    # ../../nixos/flavors/desktop/sway.nix
+    ../../nixos/flavors/desktop/sway.nix
     # ../../nixos/flavors/desktop/gnome.nix
   ];
 
@@ -92,6 +92,7 @@
     wl-clipboard # wl-copy and wl-paste
     mako
     libsecret
+    zig
 
     #  Gnome packages
     # adwaita-icon-theme
