@@ -61,6 +61,10 @@
     # unzip files
     unzip
 
+    nh
+    cargo
+    clang
+
     zsh
     oh-my-zsh
 
