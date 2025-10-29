@@ -34,6 +34,10 @@
         auto-format = true;
       }
       {
+        name = "zig";
+        auto-format = true;
+      }
+      {
         name = "rust";
         auto-format = false;
       }
