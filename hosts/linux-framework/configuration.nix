@@ -35,6 +35,27 @@
     networkmanager.enable = true;
   };
 
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          # not needed in NixOS 25.11 since https://github.com/NixOS/nixpkgs/pull/421549
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+      };
+    };
+  };
+
   services.blueman.enable = true;
 
   # Set your time zone.
@@ -80,6 +101,7 @@
       "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
       "video" # So I can change the brightness...
+      "libvirtd"
     ];
     packages = with pkgs; [ tree ];
   };
@@ -93,6 +115,7 @@
     mako
     libsecret
     zig
+    virt-manager
 
     #  Gnome packages
     # adwaita-icon-theme
