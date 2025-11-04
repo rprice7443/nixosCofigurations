@@ -28,6 +28,11 @@
     };
   };
 
+  services.postgresql = {
+    enable = true;
+    enableTCPIP = true;
+  };
+
   networking = {
     hostName = "nixos"; # Define your hostname.
 

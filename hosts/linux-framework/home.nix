@@ -57,7 +57,6 @@
 
     # audio mixer
     pulsemixer
-    postgres
 
     # unzip files
     unzip
