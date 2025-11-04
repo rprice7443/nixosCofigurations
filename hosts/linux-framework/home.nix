@@ -105,6 +105,12 @@
 
   programs.home-manager.enable = true;
 
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = pkgs.lib.concatStringSep ":" [
+      "${pkgs.openssl.dev}/lib/pkgconfig"
+    ];
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
