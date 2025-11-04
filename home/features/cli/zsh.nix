@@ -19,6 +19,7 @@
       eval "$(atuin init zsh)"
       eval "$(direnv hook zsh)"
       alias nhx='nix develop --command ${pkgs.helix}/bin/hx'
+      export PATH=$PATH:/home/riley/.cargo/bin
     '';
 
     oh-my-zsh = {

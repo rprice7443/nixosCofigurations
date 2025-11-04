@@ -106,7 +106,7 @@
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
-    PKG_CONFIG_PATH = pkgs.lib.concatStringSep ":" [
+    PKG_CONFIG_PATH = pkgs.lib.concatStringsSep ":" [
       "${pkgs.openssl.dev}/lib/pkgconfig"
     ];
   };
