@@ -49,6 +49,7 @@
     arp-scan
     julia_110
     atuin
+    rainfrog
 
     zls
 
@@ -72,6 +73,8 @@
     xfce.thunar
 
     uv
+
+    rust-analyzer
   ];
 
   home = {
