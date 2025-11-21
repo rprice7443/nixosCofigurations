@@ -50,6 +50,7 @@
     julia_110
     atuin
     rainfrog
+    zed-editor
 
     zls
 
