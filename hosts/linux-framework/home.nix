@@ -56,6 +56,7 @@
 
     # battery status
     acpi
+    just
 
     # audio mixer
     pulsemixer
