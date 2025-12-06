@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   config = {
-    services.xserver = {
-      enable = true;
+
+    services = {
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
@@ -21,10 +21,23 @@
         atomix # puzzle game
         yelp # Help view
 
-        gnome-initial-setup gnome-tour
-        gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
-        gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-photos gnome-screenshot
-        gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+        gnome-initial-setup
+        gnome-tour
+        gnome-calculator
+        gnome-calendar
+        gnome-characters
+        gnome-clocks
+        gnome-contacts
+        gnome-font-viewer
+        gnome-logs
+        gnome-maps
+        gnome-music
+        gnome-photos
+        gnome-screenshot
+        gnome-system-monitor
+        gnome-weather
+        gnome-disk-utility
+        pkgs.gnome-connections
       ]
     );
 
