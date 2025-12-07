@@ -136,6 +136,8 @@
     virt-manager
     pkg-config
 
+    plasam5Packages.plasma-thunberbolt
+
     #  Gnome packages
     # adwaita-icon-theme
     # gnome-themes-extra
