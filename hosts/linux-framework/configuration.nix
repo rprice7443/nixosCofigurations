@@ -51,6 +51,8 @@
     networkmanager.enable = true;
   };
 
+  services.hardware.bolt.enable = true;
+
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -136,7 +138,7 @@
     virt-manager
     pkg-config
 
-    plasam5Packages.plasma-thunberbolt
+    kdePackages.plasma-thunderbolt
 
     #  Gnome packages
     # adwaita-icon-theme
