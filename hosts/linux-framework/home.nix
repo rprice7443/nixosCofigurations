@@ -12,9 +12,10 @@
     ../../home/features/cli/fzf.nix
     ../../home/features/cli/bash.nix
     ../../home/features/cli/zsh.nix
+    ../../home/features/application/zed.nix
 
     # Use Sway
-    ../../home/features/desktop/sway.nix
+    # ../../home/features/desktop/sway.nix
     # ../../home/features/desktop/gnome.nix
   ];
 
