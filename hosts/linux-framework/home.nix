@@ -38,7 +38,6 @@
     picocom
     mise
     gnupg
-    pinentry
     nasm
     sshpass
     sway
