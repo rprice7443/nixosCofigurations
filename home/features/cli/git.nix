@@ -8,7 +8,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = "true";
 
-      aliases = {
+      alias = {
         "ps" = "push";
         "a" = "add .";
         "st" = "status";
