@@ -33,6 +33,7 @@
     btop
     helix
     jq
+    nodejs
     bat
     starship
     picocom

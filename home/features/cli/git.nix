@@ -2,7 +2,7 @@
 {
   programs.git = {
     enable = true;
-    aliases = {
+    settings.aliases = {
       "ps" = "push";
       "a" = "add .";
       "st" = "status";
