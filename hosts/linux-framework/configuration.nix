@@ -122,6 +122,7 @@
       "networkmanager"
       "video" # So I can change the brightness...
       "libvirtd"
+      "docker"
     ];
     packages = with pkgs; [ tree ];
   };
@@ -137,6 +138,7 @@
     zig
     virt-manager
     pkg-config
+    docker
 
     kdePackages.plasma-thunderbolt
 
