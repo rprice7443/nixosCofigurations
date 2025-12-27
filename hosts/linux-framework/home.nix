@@ -24,6 +24,7 @@
     chromium
     anki
     xz
+    element-desktop
 
     # terminal mainstays
     git
