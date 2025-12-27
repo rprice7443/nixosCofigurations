@@ -51,8 +51,8 @@
     networkmanager.enable = true;
 
     firewall.allowedUDPPorts = [
-      "53"
-      "67"
+      53
+      67
     ];
   };
 
