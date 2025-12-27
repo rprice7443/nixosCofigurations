@@ -146,6 +146,8 @@
 
     kdePackages.plasma-thunderbolt
     dnsmasq
+    nslookup
+    dig
 
     #  Gnome packages
     # adwaita-icon-theme
