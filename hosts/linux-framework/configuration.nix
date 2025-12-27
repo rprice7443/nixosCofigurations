@@ -49,6 +49,11 @@
 
     # Easiest to use and most distros use this by default.
     networkmanager.enable = true;
+
+    firewall.allowedUDPPorts = [
+      "53"
+      "67"
+    ];
   };
 
   services.hardware.bolt.enable = true;
