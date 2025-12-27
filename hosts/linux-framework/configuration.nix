@@ -48,7 +48,10 @@
     hostName = "nixos"; # Define your hostname.
 
     # Easiest to use and most distros use this by default.
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "dnsmasq";
+    };
 
     firewall.allowedUDPPorts = [
       53
@@ -103,9 +106,9 @@
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
 
-  services.dnsmasq = {
-    enable = true;
-  };
+  # services.dnsmasq = {
+  #   enable = true;
+  # };
 
   programs.nix-ld = {
     enable = true;
