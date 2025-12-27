@@ -98,6 +98,10 @@
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
 
+  services.dnsmasq = {
+    enable = true;
+  };
+
   programs.nix-ld = {
     enable = true;
 
@@ -141,6 +145,7 @@
     docker
 
     kdePackages.plasma-thunderbolt
+    dnsmasq
 
     #  Gnome packages
     # adwaita-icon-theme
