@@ -193,7 +193,10 @@
   # };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.X11Forwarding = true;
+  };
   programs.light.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
