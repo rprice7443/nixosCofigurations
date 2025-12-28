@@ -28,6 +28,8 @@
     };
   };
 
+  services.xserver.enable = true;
+
   services.postgresql = {
     enable = true;
     enableTCPIP = true;
