@@ -30,6 +30,7 @@
 
   programs.xwayland.enable = true;
 
+  programs.mosh.enable = true;
   services.tailscale.enable = true;
   services.postgresql = {
     enable = true;
