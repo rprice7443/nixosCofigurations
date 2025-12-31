@@ -166,6 +166,10 @@
     # gnomeExtensions.appindicator
   ];
 
+  virtualisation.docker = {
+    enable = true;
+  };
+
   # services.udev.packages = with pkgs; [
   #   gnome-settings-daemon
   # ];
