@@ -28,6 +28,7 @@
 
     # terminal mainstays
     git
+    git-lfs
     tmux
     ghostty
     ripgrep
