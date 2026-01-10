@@ -57,6 +57,11 @@
       dns = "dnsmasq";
     };
 
+    firewall.allowedTCPPorts = [
+      22
+      28981
+    ];
+
     firewall.allowedUDPPorts = [
       53
       67
