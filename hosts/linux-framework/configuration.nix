@@ -14,10 +14,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
-    ../../nixos/flavors/desktop/kde.nix
+    # ../../nixos/flavors/desktop/kde.nix
 
     # ../../nixos/flavors/desktop/sway.nix
-    # ../../nixos/flavors/desktop/gnome.nix
+    ../../nixos/flavors/desktop/gnome.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
