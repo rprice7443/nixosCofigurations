@@ -56,6 +56,7 @@
     zed-editor
 
     zls
+    ssh-to-age
 
     # battery status
     acpi
