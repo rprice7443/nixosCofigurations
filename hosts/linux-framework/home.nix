@@ -44,6 +44,7 @@
     nasm
     sshpass
     sway
+    sops
     wdisplays
     fuzzel
     slurp
