@@ -2,21 +2,17 @@
 
 {
   imports = [
-    ../../home/features/cli/git.nix
-    ../../home/features/cli/tmux.nix
-    ../../home/features/cli/helix.nix
-    ../../home/features/application/joplin.nix
-    ../../home/features/cli/latex.nix
-    ../../home/features/application/zathura.nix
-    ../../home/features/application/vscode.nix
-    ../../home/features/cli/fzf.nix
-    ../../home/features/cli/bash.nix
-    ../../home/features/cli/zsh.nix
-    ../../home/features/application/zed.nix
-
-    # Use Sway
-    # ../../home/features/desktop/sway.nix
-    # ../../home/features/desktop/gnome.nix
+    ../../home/cli/git.nix
+    ../../home/cli/tmux.nix
+    ../../home/cli/helix.nix
+    ../../home/application/joplin.nix
+    ../../home/cli/latex.nix
+    ../../home/application/zathura.nix
+    ../../home/application/vscode.nix
+    ../../home/cli/fzf.nix
+    ../../home/cli/bash.nix
+    ../../home/cli/zsh.nix
+    ../../home/application/zed.nix
   ];
 
   home.packages = with pkgs; [
