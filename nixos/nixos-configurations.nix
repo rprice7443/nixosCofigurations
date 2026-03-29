@@ -17,20 +17,4 @@ in
     ];
   };
 
-  homeManagerModules = {
-    home = import ./hosts/linux-framework/home.nix;
-  };
-
-  homeConfigurations = {
-    "riley" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [ self.homeManagerModules.home ];
-
-      extraSpecialArgs = {
-        inherit inputs;
-      };
-
-    };
-  };
-};
+}

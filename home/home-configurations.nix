@@ -3,14 +3,16 @@ let
   inherit (flakeInputs) self home-manager nixpkgs;
 in
 {
-  "riley-framework" = home-manager.lib.homeManagerConfiguration {
+  "riley-framework" = let
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+  in
+  home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
     modules = [ self.homeManagerModules.home ];
-
-    extraSpecialArgs = {
-      inherit inputs;
-    };
 
   };
 }
