@@ -7,44 +7,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      nixosConfigurations."linux-framework" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/linux-framework/configuration.nix
-        ];
-      };
-
-      homeManagerModules = {
-        home = import ./hosts/linux-framework/home.nix;
-      };
-
-      homeConfigurations = {
-        "riley" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          modules = [ self.homeManagerModules.home ];
-
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-
-        };
-      };
-    };
-
+  outputs = flakeInputs : {
+    nixosConfigurations = import ./nixos/nixos-configurations.nix flakeInputs;
+    homeManagerModules = import ./home/home-modules.nix flakeInputs;
+    homeConfigurations = import ./home/home-configurations.nix flakeInputs;
+  };
 }
