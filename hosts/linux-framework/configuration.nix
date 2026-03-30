@@ -14,9 +14,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../nixos/hardware/bluetooth/bluetooth.nix
-    # ../../nixos/flavors/desktop/kde.nix
-
-    # ../../nixos/flavors/desktop/sway.nix
     ../../nixos/flavors/desktop/gnome.nix
   ];
 
@@ -49,9 +46,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
-
-    # Easiest to use and most distros use this by default.
+    hostName = "nixos";
     networkmanager = {
       enable = true;
       dns = "dnsmasq";
@@ -122,31 +117,22 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
   '';
 
-  # Set your time zone.
+
   time.timeZone = "America/Los_Angeles";
-
-  # enable fonts
   fonts.enableDefaultPackages = true;
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
     printing.enable = true;
-
     pipewire = {
       enable = true;
       pulse.enable = true;
     };
-
   };
 
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
 
-  # services.dnsmasq = {
-  #   enable = true;
-  # };
 
   programs.nix-ld = {
     enable = true;
@@ -161,10 +147,6 @@
 
   services.envfs.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.riley = {
     isNormalUser = true;
     extraGroups = [
@@ -191,24 +173,14 @@
     virt-manager
     pkg-config
     docker
-
     kdePackages.plasma-thunderbolt
     dnsmasq
     bind
-
-    #  Gnome packages
-    # adwaita-icon-theme
-    # gnome-themes-extra
-    # gnomeExtensions.appindicator
   ];
 
   virtualisation.docker = {
     enable = true;
   };
-
-  # services.udev.packages = with pkgs; [
-  #   gnome-settings-daemon
-  # ];
 
   security.polkit.enable = true;
 
@@ -218,21 +190,7 @@
     "flakes"
   ];
 
-  # programs.sway = {
-  #   enable = true;
-  #   package = null;
-  # };
 
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #     };
-  #   };
-  # };
-
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings.X11Forwarding = true;
