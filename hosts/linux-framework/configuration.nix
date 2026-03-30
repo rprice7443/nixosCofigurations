@@ -13,8 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../nixos/hardware/bluetooth/bluetooth.nix
-    ../../nixos/flavors/desktop/gnome.nix
+    ../../nixos/modules/gnome.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -117,7 +116,6 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
   '';
 
-
   time.timeZone = "America/Los_Angeles";
   fonts.enableDefaultPackages = true;
   i18n.defaultLocale = "en_US.UTF-8";
@@ -132,7 +130,6 @@
 
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
-
 
   programs.nix-ld = {
     enable = true;
@@ -189,7 +186,6 @@
     "nix-command"
     "flakes"
   ];
-
 
   services.openssh = {
     enable = true;
