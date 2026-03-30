@@ -12,7 +12,7 @@ in
   home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
-    modules = [ self.homeManagerModules.home ];
+    modules = [ self.homeManagerModules.framework ];
 
   };
 }
