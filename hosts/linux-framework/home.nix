@@ -109,6 +109,8 @@
 
   };
 
+  programs.discord.enable = true;
+
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
