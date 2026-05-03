@@ -21,7 +21,7 @@
       alias nhx='nix develop --command ${pkgs.helix}/bin/hx'
       export PATH=$PATH:/home/riley/.cargo/bin
       export PATH=$PATH:/home/riley/.npm-global/bin
-      export EDITOR=${pkgs.ed}/bin/ed
+      export EDITOR=${pkgs.helix}/bin/hx
       export VISUAL=${pkgs.helix}/bin/hx
     '';
 
