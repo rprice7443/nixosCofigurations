@@ -22,6 +22,7 @@
     xz
     element-desktop
 
+    go
     # terminal mainstays
     git
     git-lfs
