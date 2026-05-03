@@ -23,6 +23,7 @@
     element-desktop
 
     go
+    forgejo-cli
     # terminal mainstays
     git
     git-lfs
