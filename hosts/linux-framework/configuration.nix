@@ -191,7 +191,6 @@
     enable = true;
     settings.X11Forwarding = true;
   };
-  programs.light.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
