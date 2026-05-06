@@ -175,6 +175,7 @@
     bind
 
     noctalia
+    networkmanagerapplet
   ];
 
   virtualisation.docker = {
