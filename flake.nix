@@ -10,6 +10,7 @@
   };
 
   outputs = flakeInputs: {
+    overlays = import ./overlays.nix flakeInputs;
     nixosConfigurations = import ./nixos/nixos-configurations.nix flakeInputs;
     homeManagerModules = import ./home/home-modules.nix flakeInputs;
     homeConfigurations = import ./home/home-configurations.nix flakeInputs;

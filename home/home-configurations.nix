@@ -4,7 +4,6 @@ let
     self
     home-manager
     nixpkgs
-    noctalia
     ;
 in
 {
@@ -13,6 +12,7 @@ in
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
+        overlays = [ self.overlays.noctalia ];
       };
     in
     home-manager.lib.homeManagerConfiguration {
@@ -20,7 +20,6 @@ in
 
       modules = [
         self.homeManagerModules.framework
-        noctalia.homeModules.default
       ];
 
     };
