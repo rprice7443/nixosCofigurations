@@ -4,7 +4,7 @@
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "waybar"
+spawn-at-startup "waybar"
 spawn-at-startup "nm-applet" "--indicator"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -14,5 +14,3 @@ hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
 }
-
-spawn-at-startup "noctalia"

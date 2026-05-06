@@ -116,6 +116,10 @@
   programs.home-manager.enable = true;
 
   xdg.configFile."niri/config.kdl".source = ../../niri/config.kdl;
+  xdg.configFile."niri/cfg" = {
+    source = ../../niri/cfg;
+    recursive = true;
+  };
 
   home.sessionVariables = {
     PKG_CONFIG_PATH = pkgs.lib.concatStringsSep ":" [
