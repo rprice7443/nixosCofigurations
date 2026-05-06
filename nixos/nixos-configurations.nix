@@ -1,7 +1,7 @@
 flakeInputs:
 let
   system = "x86_64-linux";
-  inherit (flakeInputs) nixpkgs;
+  inherit (flakeInputs) nixpkgs self;
 in
 {
   "linux-framework" =
