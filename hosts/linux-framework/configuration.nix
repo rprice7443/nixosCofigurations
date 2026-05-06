@@ -153,7 +153,10 @@
       "libvirtd"
       "docker"
     ];
-    packages = with pkgs; [ tree ];
+    packages = with pkgs; [
+      tree
+      waybar
+    ];
   };
 
   hardware.opengl.enable = true;
