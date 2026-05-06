@@ -20,7 +20,7 @@ in
 
       modules = [
         self.homeManagerModules.framework
-        noctalia.homeManagerModules.default
+        noctalia.homeModules.default
       ];
 
     };
