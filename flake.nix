@@ -5,8 +5,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    niri-flake.url = "github:sodiboo/niri-flake";
-    niri-flake.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = flakeInputs: {
