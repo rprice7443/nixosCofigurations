@@ -4,19 +4,15 @@ let
   inherit (flakeInputs) nixpkgs self;
 in
 {
-  "linux-framework" =
-    let
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [ self.overlays.noctalia ];
-      };
-    in
-    nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ../hosts/linux-framework/configuration.nix
-      ];
-    };
+  "linux-framework" = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ../hosts/linux-framework/configuration.nix
+      {
+        nixpkgs.overlays = [ self.overlays.noctalia ];
+        nixpkgs.config.allowUnfree = true;
+      }
+    ];
+  };
 
 }
