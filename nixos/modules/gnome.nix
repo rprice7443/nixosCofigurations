@@ -7,6 +7,8 @@
       desktopManager.gnome.enable = true;
     };
 
+    programs.niri.enable = true;
+
     environment.gnome.excludePackages = (
       with pkgs;
       [
