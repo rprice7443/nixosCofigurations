@@ -173,6 +173,8 @@
     kdePackages.plasma-thunderbolt
     dnsmasq
     bind
+
+    noctalia
   ];
 
   virtualisation.docker = {
