@@ -9,6 +9,6 @@
 
   programs.waybar = {
     enable = true;
-    settings = builtins.fromJSON ../../xdgConfig/waybar/config.jsonc;
+    settings = builtins.fromJSON (builtins.readFile ../../xdgConfig/waybar/config.jsonc);
   };
 }
