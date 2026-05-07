@@ -83,17 +83,11 @@
   ];
 
   home = {
-
     username = "riley";
-
     homeDirectory = "/home/riley";
-
     stateVersion = "24.11"; # Please read the comment before changing.
-
     file = { };
-
     sessionVariables = { };
-
     pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
@@ -103,23 +97,14 @@
         defaultCursor = "Adwaita";
       };
     };
-
     keyboard = {
       layout = "us";
       variant = "dvorak";
     };
-
   };
 
   programs.discord.enable = true;
-
   programs.home-manager.enable = true;
-
-  xdg.configFile."niri/config.kdl".source = ../../niri/config.kdl;
-  xdg.configFile."niri/cfg" = {
-    source = ../../niri/cfg;
-    recursive = true;
-  };
 
   home.sessionVariables = {
     PKG_CONFIG_PATH = pkgs.lib.concatStringsSep ":" [

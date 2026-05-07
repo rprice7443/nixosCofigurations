@@ -3,7 +3,10 @@
   config = {
 
     services = {
-      displayManager.gdm.enable = true;
+      displayManager = {
+        gdm.enable = true;
+        sessionPackages = [pkgs.niri];
+      };
       desktopManager.gnome.enable = true;
     };
 
