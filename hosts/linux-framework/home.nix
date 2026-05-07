@@ -14,6 +14,7 @@
     ../../home/cli/zsh.nix
     ../../home/application/zed.nix
     ../../home/desktop/niri.nix
+    ../../home/desktop/mako.nix
   ];
 
   home.packages = with pkgs; [

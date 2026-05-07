@@ -2,8 +2,10 @@
   "mainBar": {
     "layer": "top",
     "position": "top",
+    "height": 34,
     "modules-left": ["niri/workspaces", "niri/window"],
-    "modules-right": ["clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "battery", "tray"],
 
     "niri/workspaces": {
       "format": "{name}",
@@ -11,7 +13,39 @@
     },
     "niri/window": {
       "format": "{title}",
-      "max-length": 50
+      "max-length": 60
+    },
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%a %b %d, %Y}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "BAT {capacity}%",
+      "format-charging": "CHR {capacity}%",
+      "format-plugged": "PLG {capacity}%",
+      "format-full": "FULL",
+      "tooltip-format": "{timeTo}"
+    },
+    "network": {
+      "format-wifi": "{essid} {signalStrength}%",
+      "format-ethernet": "{ipaddr}",
+      "format-disconnected": "offline",
+      "format-linked": "no IP",
+      "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}% signal"
+    },
+    "pulseaudio": {
+      "format": "VOL {volume}%",
+      "format-muted": "MUTE",
+      "on-click": "pulsemixer",
+      "scroll-step": 5
+    },
+    "tray": {
+      "spacing": 8
     }
   }
 }
