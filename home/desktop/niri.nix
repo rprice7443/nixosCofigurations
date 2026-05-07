@@ -7,6 +7,8 @@
     recursive = true;
   };
 
-
-  programs.waybar = builtins.fromJSON ../../xdgConfig/waybar/config.jsonc;
+  programs.waybar = {
+    enable = true;
+    settings = builtins.fromJSON ../../xdgConfig/waybar/config.jsonc;
+  };
 }
