@@ -5,7 +5,6 @@ layout {
     // Set gaps around windows in logical pixels.
     gaps 16
     center-focused-column "never"
-    resize-grab-area 8
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
