@@ -24,6 +24,7 @@
     anki
     xz
     element-desktop
+    signal-desktop
 
     go
     forgejo-cli
