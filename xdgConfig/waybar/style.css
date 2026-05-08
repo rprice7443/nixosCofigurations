@@ -47,10 +47,24 @@ window#waybar {
     color: #f7768e;
 }
 
-#window {
+#taskbar button {
+    padding: 2px 10px;
+    background: transparent;
     color: #565f89;
-    padding: 0 12px;
-    font-style: italic;
+    border-radius: 4px;
+    margin: 4px 2px;
+    transition: all 0.15s ease;
+}
+
+#taskbar button:hover {
+    background: rgba(122, 162, 247, 0.15);
+    color: #c0caf5;
+}
+
+#taskbar button.active {
+    color: #c0caf5;
+    background: rgba(122, 162, 247, 0.15);
+    border-bottom: 2px solid #7aa2f7;
 }
 
 #clock {

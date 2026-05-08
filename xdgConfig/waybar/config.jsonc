@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "top",
     "height": 34,
-    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-left": ["niri/workspaces", "wlr/taskbar"],
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "network", "battery", "tray"],
 
@@ -11,9 +11,14 @@
       "format": "{name}",
       "all-outputs": true
     },
-    "niri/window": {
-      "format": "{title}",
-      "max-length": 60
+    "wlr/taskbar": {
+      "format": "{icon} {name}",
+      "icon-size": 16,
+      "on-click": "activate",
+      "on-click-right": "close",
+      "tooltip-format": "{title}",
+      "active-first": false,
+      "ignore-list": []
     },
     "clock": {
       "format": "{:%H:%M}",

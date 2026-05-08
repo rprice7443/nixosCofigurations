@@ -15,6 +15,7 @@
     ../../home/application/zed.nix
     ../../home/desktop/niri.nix
     ../../home/desktop/mako.nix
+    ../../home/desktop/fuzzel.nix
   ];
 
   home.packages = with pkgs; [
@@ -44,10 +45,11 @@
     nasm
     sshpass
     sway
+    swaylock
     sops
     kanshi
     wdisplays
-    fuzzel
+    swaybg
     slurp
     grip
     ffmpeg
