@@ -110,6 +110,22 @@
   };
 
   programs.discord.enable = true;
+
+  systemd.user.services.discord = {
+    Unit = {
+      Description = "Discord";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.discord}/bin/discord --start-minimized";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
