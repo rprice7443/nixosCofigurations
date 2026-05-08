@@ -51,6 +51,7 @@
     kanshi
     wdisplays
     swaybg
+    xwayland-satellite
     slurp
     grip
     ffmpeg
@@ -118,6 +119,7 @@
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
       ExecStart = "${pkgs.discord}/bin/discord --start-minimized";
       Restart = "on-failure";
       RestartSec = 5;
