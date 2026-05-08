@@ -9,7 +9,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "element-desktop" "--hidden"
-spawn-at-startup "discord" "--start-minimized"
+spawn-sh-at-startup "discord --start-minimized"
 spawn-at-startup "signal-desktop" "--start-in-tray"
 spawn-at-startup "kanshi"
 
