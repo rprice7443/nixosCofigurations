@@ -45,6 +45,7 @@
     sshpass
     sway
     sops
+    kanshi
     wdisplays
     fuzzel
     slurp
