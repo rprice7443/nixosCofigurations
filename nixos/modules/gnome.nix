@@ -48,22 +48,6 @@
 
     programs.dconf = {
       enable = true;
-      profiles.gdm.databases = [{
-        settings = {
-          "org/gnome/desktop/background" = {
-            picture-options = "none";
-            color-shading-type = "solid";
-            primary-color = "#1a1b26";
-            secondary-color = "#1a1b26";
-          };
-          "org/gnome/desktop/screensaver" = {
-            picture-options = "none";
-            color-shading-type = "solid";
-            primary-color = "#1a1b26";
-            secondary-color = "#1a1b26";
-          };
-        };
-      }];
     };
 
     environment.systemPackages = with pkgs; [ gnome-tweaks ];
