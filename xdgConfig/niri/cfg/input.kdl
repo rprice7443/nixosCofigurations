@@ -13,17 +13,6 @@ input {
         numlock
     }
 
-    // Run `niri msg devices` to find your internal keyboard's exact name
-    device "AT Translated Set 2 keyboard" {
-        keyboard {
-            xkb {
-                layout "us"
-                variant "dvorak"
-            }
-            numlock
-        }
-    }
-
     touchpad {
         tap
         natural-scroll
