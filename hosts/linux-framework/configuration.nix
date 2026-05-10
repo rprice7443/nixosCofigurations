@@ -145,6 +145,7 @@
       nspr
       dbus
       atk
+      at-spi2-atk
       at-spi2-core
       libxkbcommon
       cups
@@ -160,6 +161,7 @@
       xorg.libXrandr
       xorg.libxcb
       mesa
+      libgbm
       expat
       xorg.libxkbfile
       xorg.libXtst
