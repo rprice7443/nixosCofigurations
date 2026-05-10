@@ -28,7 +28,7 @@
         inputs.treefmt-nix.flakeModule
       ];
       flake = {
-        homeManagerModules = import ./home/home-modules.nix { inherit self; };
+        homeModules = import ./home/home-modules.nix { inherit self; };
         nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
       };
 
