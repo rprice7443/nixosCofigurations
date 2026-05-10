@@ -193,6 +193,7 @@
       "video" # So I can change the brightness...
       "libvirtd"
       "docker"
+      "dialout"
     ];
     packages = with pkgs; [
       tree
