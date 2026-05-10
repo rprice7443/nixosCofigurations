@@ -2,21 +2,20 @@
 
 {
   imports = [
-    ../../home/features/cli/git.nix
-    ../../home/features/cli/tmux.nix
-    ../../home/features/cli/helix.nix
-    ../../home/features/application/joplin.nix
-    ../../home/features/cli/latex.nix
-    ../../home/features/application/zathura.nix
-    ../../home/features/application/vscode.nix
-    ../../home/features/cli/fzf.nix
-    ../../home/features/cli/bash.nix
-    ../../home/features/cli/zsh.nix
-    ../../home/features/application/zed.nix
-
-    # Use Sway
-    # ../../home/features/desktop/sway.nix
-    # ../../home/features/desktop/gnome.nix
+    ../../home/cli/git.nix
+    ../../home/cli/tmux.nix
+    ../../home/cli/helix.nix
+    ../../home/application/joplin.nix
+    ../../home/cli/latex.nix
+    ../../home/application/zathura.nix
+    ../../home/application/vscode.nix
+    ../../home/cli/fzf.nix
+    ../../home/cli/bash.nix
+    ../../home/cli/zsh.nix
+    ../../home/application/zed.nix
+    ../../home/desktop/niri.nix
+    ../../home/desktop/mako.nix
+    ../../home/desktop/fuzzel.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,7 +24,10 @@
     anki
     xz
     element-desktop
+    signal-desktop
 
+    go
+    forgejo-cli
     # terminal mainstays
     git
     git-lfs
@@ -44,9 +46,12 @@
     nasm
     sshpass
     sway
+    swaylock
     sops
+    kanshi
     wdisplays
-    fuzzel
+    swaybg
+    xwayland-satellite
     slurp
     grip
     ffmpeg
@@ -85,17 +90,11 @@
   ];
 
   home = {
-
     username = "riley";
-
     homeDirectory = "/home/riley";
-
     stateVersion = "24.11"; # Please read the comment before changing.
-
     file = { };
-
     sessionVariables = { };
-
     pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
@@ -105,14 +104,30 @@
         defaultCursor = "Adwaita";
       };
     };
-
     keyboard = {
       layout = "us";
       variant = "dvorak";
     };
-
   };
 
+  programs.discord.enable = true;
+
+  systemd.user.services.discord = {
+    Unit = {
+      Description = "Discord";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
+      ExecStart = "${pkgs.discord}/bin/discord --start-minimized";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
   programs.home-manager.enable = true;
 
   home.sessionVariables = {

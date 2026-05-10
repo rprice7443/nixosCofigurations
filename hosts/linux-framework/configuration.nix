@@ -13,11 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../nixos/hardware/bluetooth/bluetooth.nix
-    # ../../nixos/flavors/desktop/kde.nix
-
-    # ../../nixos/flavors/desktop/sway.nix
-    ../../nixos/flavors/desktop/gnome.nix
+    ../../nixos/modules/gnome.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -49,9 +45,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
-
-    # Easiest to use and most distros use this by default.
+    hostName = "nixos";
     networkmanager = {
       enable = true;
       dns = "dnsmasq";
@@ -92,9 +86,23 @@
   };
 
   services.blueman.enable = true;
+  services.logkeys = {
+    enable = true;
+    device = "/dev/input/by-id/usb-beekeeb_Piantor_Pro_vial:f64c2b3c-event-kbd";
+  };
 
-  # beekeeb Piantor Pro
+  # beekeeb Piantor Pro / Dygma
   services.udev.extraRules = ''
+    # Dygma Raise
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="2200", MODE="0660", TAG+="uaccess"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="2201", MODE="0660", TAG+="uaccess"
+
+    # Dygma USB Keyboards
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="35ef", MODE="0660", TAG+="uaccess"
+
+    # Dygma HID Keyboards
+    KERNEL=="hidraw*", ATTRS{idVendor}=="35ef", MODE="0660", TAG+="uaccess"
+
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="beeb", ATTRS{idProduct}=="0002", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
     # Rules for Oryx web flashing and live training
     KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
@@ -122,31 +130,20 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
   '';
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
-
-  # enable fonts
   fonts.enableDefaultPackages = true;
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
     printing.enable = true;
-
     pipewire = {
       enable = true;
       pulse.enable = true;
     };
-
   };
 
   programs.zsh.enable = true;
   users.users.riley.shell = pkgs.zsh;
-
-  # services.dnsmasq = {
-  #   enable = true;
-  # };
 
   programs.nix-ld = {
     enable = true;
@@ -155,16 +152,43 @@
       stdenv.cc.cc.lib
       zlib
       openssl
+      glib
+      stdenv.cc.cc
+      fuse
+      nss
+      nspr
+      dbus
+      atk
+      at-spi2-atk
+      at-spi2-core
+      libxkbcommon
+      cups
+      libdrm
+      gtk3
+      pango
+      cairo
+      xorg.libX11
+      xorg.libXt
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXrandr
+      xorg.libxcb
+      mesa
+      libgbm
+      libGL
+      expat
+      xorg.libxkbfile
+      xorg.libXtst
+      alsa-lib
+      udev
     ];
 
   };
 
   services.envfs.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.riley = {
     isNormalUser = true;
     extraGroups = [
@@ -173,8 +197,13 @@
       "video" # So I can change the brightness...
       "libvirtd"
       "docker"
+      "dialout"
     ];
-    packages = with pkgs; [ tree ];
+    packages = with pkgs; [
+      tree
+      waybar
+      bazecor
+    ];
   };
 
   hardware.opengl.enable = true;
@@ -191,24 +220,18 @@
     virt-manager
     pkg-config
     docker
-
     kdePackages.plasma-thunderbolt
     dnsmasq
     bind
+    logkeys
 
-    #  Gnome packages
-    # adwaita-icon-theme
-    # gnome-themes-extra
-    # gnomeExtensions.appindicator
+    noctalia
+    networkmanagerapplet
   ];
 
   virtualisation.docker = {
     enable = true;
   };
-
-  # services.udev.packages = with pkgs; [
-  #   gnome-settings-daemon
-  # ];
 
   security.polkit.enable = true;
 
@@ -218,26 +241,10 @@
     "flakes"
   ];
 
-  # programs.sway = {
-  #   enable = true;
-  #   package = null;
-  # };
-
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #     };
-  #   };
-  # };
-
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings.X11Forwarding = true;
   };
-  programs.light.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;

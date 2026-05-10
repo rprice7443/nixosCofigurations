@@ -3,9 +3,14 @@
   config = {
 
     services = {
-      displayManager.gdm.enable = true;
+      displayManager = {
+        gdm.enable = true;
+        sessionPackages = [pkgs.niri];
+      };
       desktopManager.gnome.enable = true;
     };
+
+    programs.niri.enable = true;
 
     environment.gnome.excludePackages = (
       with pkgs;
@@ -41,7 +46,10 @@
       ]
     );
 
-    programs.dconf.enable = true;
+    programs.dconf = {
+      enable = true;
+    };
+
     environment.systemPackages = with pkgs; [ gnome-tweaks ];
   };
 }
