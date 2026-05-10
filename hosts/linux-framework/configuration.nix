@@ -86,6 +86,10 @@
   };
 
   services.blueman.enable = true;
+  services.logkeys = {
+    enable = true;
+    device = "/dev/input/by-id/usb-beekeeb_Piantor_Pro_vial:f64c2b3c-event-kbd";
+  };
 
   # beekeeb Piantor Pro / Dygma
   services.udev.extraRules = ''
@@ -219,6 +223,7 @@
     kdePackages.plasma-thunderbolt
     dnsmasq
     bind
+    logkeys
 
     noctalia
     networkmanagerapplet
