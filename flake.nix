@@ -7,18 +7,33 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    }
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      treefmt-nix,
-      ...
-    }:
-    {
+  outputs = inputs@{
+    flake-parts,
+    home-manager,
+    nixpkgs,
+    treefmt-nix,
+    ...
+  }: flake-parts.lib.mkFlake {inherit inputs;} {
+    imports = [
+      inputs.home-manager.flakeModules.home-manager
+      inputs.treefmt-nix.flakeModule
+    ];
+    flake = {
       homeManagerModules = import ./home/home-modules.nix { inherit self; };
       nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
-      formatter.x86_64-linux = import ./treefmt.nix { inherit nixpkgs treefmt-nix; };
+    };
+
+    systems = [
+      "x86_64-linux"
+    ];
+
+    perSystem = {config, pkgs, ...}: {
+      treefmt = import ./treefmt.nix {inherit nixpkgs treefmt-nix};
     };
 }
