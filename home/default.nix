@@ -21,13 +21,11 @@ let
 in
 {
   imports = [
-    ./cli/git.nix
     ./cli/zsh.nix
     ./cli/helix.nix
     ./cli/tmux.nix
     ./cli/fzf.nix
     ./cli/latex.nix
-    ./application/vscode.nix
     ./application/zed.nix
     ./application/joplin.nix
     ./application/zathura.nix
