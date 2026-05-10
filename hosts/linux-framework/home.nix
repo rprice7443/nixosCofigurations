@@ -18,76 +18,7 @@
     ../../home/desktop/fuzzel.nix
   ];
 
-  home.packages = with pkgs; [
-    firefox
-    chromium
-    anki
-    xz
-    element-desktop
-    signal-desktop
-
-    go
-    forgejo-cli
-    # terminal mainstays
-    git
-    git-lfs
-    tmux
-    ghostty
-    ripgrep
-    btop
-    helix
-    jq
-    nodejs
-    bat
-    starship
-    picocom
-    mise
-    gnupg
-    nasm
-    sshpass
-    sway
-    swaylock
-    sops
-    kanshi
-    wdisplays
-    swaybg
-    xwayland-satellite
-    slurp
-    grip
-    ffmpeg
-    arp-scan
-    julia_110
-    atuin
-    rainfrog
-    zed-editor
-
-    zls
-    ssh-to-age
-
-    # battery status
-    acpi
-    just
-
-    # audio mixer
-    pulsemixer
-
-    # unzip files
-    unzip
-
-    nh
-    cargo
-    clang
-
-    zsh
-    oh-my-zsh
-
-    # file manager
-    xfce.thunar
-
-    uv
-
-    rust-analyzer
-  ];
+  home.packages = import ./std-home-pkgs.nix pkgs;
 
   home = {
     username = "riley";
@@ -95,19 +26,6 @@
     stateVersion = "24.11"; # Please read the comment before changing.
     file = { };
     sessionVariables = { };
-    pointerCursor = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-      size = 24;
-      x11 = {
-        enable = true;
-        defaultCursor = "Adwaita";
-      };
-    };
-    keyboard = {
-      layout = "us";
-      variant = "dvorak";
-    };
   };
 
   programs.discord.enable = true;
