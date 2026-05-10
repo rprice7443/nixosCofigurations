@@ -143,7 +143,10 @@
       fuse
       nss
       nspr
+      dbus
       atk
+      at-spi2-core
+      libxkbcommon
       cups
       libdrm
       gtk3
