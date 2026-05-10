@@ -21,6 +21,7 @@ let
 in
 {
   imports = [
+    ./cli/git.nix
     ./cli/zsh.nix
     ./cli/helix.nix
     ./cli/tmux.nix
