@@ -1,4 +1,3 @@
-flakeInputs:
-{
+flakeInputs: {
   default = import ./default.nix;
 }

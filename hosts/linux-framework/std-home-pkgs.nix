@@ -5,14 +5,17 @@ with pkgs;
   # Browsers
   chromium
   firefox
-] ++ [
+]
+++ [
   # Communication
   element-desktop
   signal-desktop
-] ++ [
+]
+++ [
   # Learning
   anki
-] ++ [
+]
+++ [
   # Terminal mainstays
   atuin
   bat
@@ -25,11 +28,13 @@ with pkgs;
   ripgrep
   starship
   tmux
-] ++ [
+]
+++ [
   # Shell
   oh-my-zsh
   zsh
-] ++ [
+]
+++ [
   # Development
   cargo
   clang
@@ -44,7 +49,8 @@ with pkgs;
   uv
   zed-editor
   zls
-] ++ [
+]
+++ [
   # Wayland desktop
   kanshi
   slurp
@@ -58,19 +64,22 @@ with pkgs;
   slurp # screenshot functionality
   wl-clipboard # wl-copy and wl-paste
   mako
-] ++ [
+]
+++ [
   # Media and files
   ffmpeg
   pulsemixer
   unzip
   xfce.thunar
   xz
-] ++ [
+]
+++ [
   # Security and secrets
   gnupg
   sops
   ssh-to-age
-] ++ [
+]
+++ [
   # System and networking
   acpi
   arp-scan
@@ -80,7 +89,8 @@ with pkgs;
   sshpass
   dnsmasq
   bind
-] ++ [
+]
+++ [
   # Miscellaneous
   grip
   libsecret

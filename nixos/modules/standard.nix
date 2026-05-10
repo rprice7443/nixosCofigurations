@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options.common = {
     timezone = lib.mkOption {
@@ -15,11 +20,15 @@
     libvirt.enable = lib.mkEnableOption "libvirtd and QEMU virtualization";
     audio.enable = lib.mkEnableOption "PipeWire audio";
     printing.enable = lib.mkEnableOption "printing support";
+    openssh.enable = lib.mkEnableOption "OpenSSH server";
   };
 
   config = lib.mkMerge [
     {
-      nix.settings.experimental-features = [ "nix-command" "flakes" ];
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       time.timeZone = config.common.timezone;
       i18n.defaultLocale = config.common.locale;
@@ -28,6 +37,12 @@
       security.polkit.enable = true;
       hardware.opengl.enable = true;
       services.envfs.enable = true;
+
+      environment.systemPackages = with pkgs; [
+        vim
+        wget
+        networkmanagerapplet
+      ];
 
       programs.nix-ld = {
         enable = true;
@@ -70,25 +85,12 @@
       };
     }
 
-    services.openssh = {
-      enable = true;
-      settings.X11Forwarding = true;
-    };
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    logkeys
-    networkmanagerapplet
-  ];
-
-  virtualisation.libvirtd.qemu = {
-    package = pkgs.qemu_kvm;
-    runAsRoot = true;
-    swtpm.enable = true;
-  };
+    (lib.mkIf config.common.openssh.enable {
+      services.openssh = {
+        enable = true;
+        settings.X11Forwarding = true;
+      };
+    })
 
     (lib.mkIf config.common.audio.enable {
       services.pipewire = {
@@ -106,7 +108,14 @@
     })
 
     (lib.mkIf config.common.libvirt.enable {
-      virtualisation.libvirtd.enable = true;
+      virtualisation.libvirtd = {
+        enable = true;
+        qemu = {
+          package = pkgs.qemu_kvm;
+          runAsRoot = true;
+          swtpm.enable = true;
+        };
+      };
     })
   ];
 }

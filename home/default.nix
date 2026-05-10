@@ -1,22 +1,32 @@
 { config, lib, ... }:
 let
   # Recursively enumerate all files under a directory, returning relative paths.
-  listFilesRecursive = dir:
+  listFilesRecursive =
+    dir:
     let
       entries = builtins.readDir dir;
-      process = name: type:
-        if type == "directory"
-        then map (f: "${name}/${f}") (listFilesRecursive "${dir}/${name}")
-        else [ name ];
+      process =
+        name: type:
+        if type == "directory" then
+          map (f: "${name}/${f}") (listFilesRecursive "${dir}/${name}")
+        else
+          [ name ];
     in
     lib.flatten (lib.mapAttrsToList process entries);
 
   # Build a xdg.configFile attrset from an xdgConfig/ directory inside src.
-  xdgFiles = src:
-    let xdgDir = "${src}/xdgConfig"; in
+  xdgFiles =
+    src:
+    let
+      xdgDir = "${src}/xdgConfig";
+    in
     lib.listToAttrs (
-      map (f: { name = f; value = { source = "${xdgDir}/${f}"; }; })
-          (listFilesRecursive xdgDir)
+      map (f: {
+        name = f;
+        value = {
+          source = "${xdgDir}/${f}";
+        };
+      }) (listFilesRecursive xdgDir)
     );
 in
 {
@@ -54,13 +64,12 @@ in
 
   config = {
     xdg.configFile =
-    (lib.optionalAttrs
-      (builtins.pathExists "${config.common.src}/xdgConfig")
-      (xdgFiles config.common.src))
-    //
-    (lib.optionalAttrs
-      (config.common.hostSrc != null && builtins.pathExists "${config.common.hostSrc}/xdgConfig")
-      (xdgFiles config.common.hostSrc));
+      (lib.optionalAttrs (builtins.pathExists "${config.common.src}/xdgConfig") (
+        xdgFiles config.common.src
+      ))
+      // (lib.optionalAttrs (
+        config.common.hostSrc != null && builtins.pathExists "${config.common.hostSrc}/xdgConfig"
+      ) (xdgFiles config.common.hostSrc));
 
     programs.home-manager.enable = true;
 

@@ -5,7 +5,7 @@
     services = {
       displayManager = {
         gdm.enable = true;
-        sessionPackages = [pkgs.niri];
+        sessionPackages = [ pkgs.niri ];
       };
       desktopManager.gnome.enable = true;
     };

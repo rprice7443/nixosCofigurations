@@ -1,3 +1,2 @@
-flakeInputs:
-{
+flakeInputs: {
 }
