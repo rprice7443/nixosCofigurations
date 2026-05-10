@@ -154,6 +154,7 @@
       pango
       cairo
       xorg.libX11
+      xorg.libXt
       xorg.libXcomposite
       xorg.libXdamage
       xorg.libXext
@@ -162,6 +163,7 @@
       xorg.libxcb
       mesa
       libgbm
+      libGL
       expat
       xorg.libxkbfile
       xorg.libXtst
