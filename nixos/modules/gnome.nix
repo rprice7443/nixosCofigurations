@@ -46,9 +46,10 @@
       ]
     );
 
-    programs.dconf = {
-      enable = true;
-    };
+    programs.dconf.enable = true;
+
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
 
     environment.systemPackages = with pkgs; [ gnome-tweaks ];
   };
