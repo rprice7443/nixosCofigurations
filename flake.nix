@@ -13,29 +13,33 @@
     };
   };
 
-  outputs = inputs@{
-    self,
-    flake-parts,
-    home-manager,
-    nixpkgs,
-    treefmt-nix,
-    ...
-  }: flake-parts.lib.mkFlake {inherit inputs;} {
-    imports = [
-      inputs.home-manager.flakeModules.home-manager
-      inputs.treefmt-nix.flakeModule
-    ];
-    flake = {
-      homeManagerModules = import ./home/home-modules.nix { inherit self; };
-      nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
-    };
+  outputs =
+    inputs@{
+      self,
+      flake-parts,
+      home-manager,
+      nixpkgs,
+      treefmt-nix,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.home-manager.flakeModules.home-manager
+        inputs.treefmt-nix.flakeModule
+      ];
+      flake = {
+        homeManagerModules = import ./home/home-modules.nix { inherit self; };
+        nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
+      };
 
-    systems = [
-      "x86_64-linux"
-    ];
+      systems = [
+        "x86_64-linux"
+      ];
 
-    perSystem = {config, pkgs, ...}: {
-      treefmt = import ./treefmt.nix {inherit nixpkgs treefmt-nix;};
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          treefmt = import ./treefmt.nix;
+        };
     };
-  };
 }
