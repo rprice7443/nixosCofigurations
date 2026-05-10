@@ -52,7 +52,8 @@ in
     desktop.enable = lib.mkEnableOption "common desktop environment (niri, waybar, mako, fuzzel)";
   };
 
-  config.xdg.configFile =
+  config = {
+    xdg.configFile =
     (lib.optionalAttrs
       (builtins.pathExists "${config.common.src}/xdgConfig")
       (xdgFiles config.common.src))
@@ -60,4 +61,12 @@ in
     (lib.optionalAttrs
       (config.common.hostSrc != null && builtins.pathExists "${config.common.hostSrc}/xdgConfig")
       (xdgFiles config.common.hostSrc));
+
+    programs.home-manager.enable = true;
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
 }

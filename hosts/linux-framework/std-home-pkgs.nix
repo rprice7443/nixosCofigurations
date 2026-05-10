@@ -53,6 +53,11 @@ with pkgs;
   swaylock
   wdisplays
   xwayland-satellite
+  waybar
+  grim # screenshot functionality
+  slurp # screenshot functionality
+  wl-clipboard # wl-copy and wl-paste
+  mako
 ] ++ [
   # Media and files
   ffmpeg
@@ -73,7 +78,15 @@ with pkgs;
   picocom
   rainfrog
   sshpass
+  dnsmasq
+  bind
 ] ++ [
   # Miscellaneous
   grip
+  libsecret
+  zig
+  virt-manager
+  pkg-config
+  docker
+  networkmanagerapplet
 ]

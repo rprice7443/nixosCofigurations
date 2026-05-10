@@ -70,6 +70,26 @@
       };
     }
 
+    services.openssh = {
+      enable = true;
+      settings.X11Forwarding = true;
+    };
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    logkeys
+    networkmanagerapplet
+  ];
+
+  virtualisation.libvirtd.qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+  };
+
     (lib.mkIf config.common.audio.enable {
       services.pipewire = {
         enable = true;

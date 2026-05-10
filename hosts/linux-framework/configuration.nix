@@ -201,8 +201,6 @@
     ];
     packages = with pkgs; [
       tree
-      waybar
-      bazecor
     ];
   };
 
@@ -211,22 +209,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste
-    mako
-    libsecret
-    zig
-    virt-manager
-    pkg-config
-    docker
-    kdePackages.plasma-thunderbolt
-    dnsmasq
-    bind
     logkeys
-
-    noctalia
-    networkmanagerapplet
   ];
 
   virtualisation.docker = {
