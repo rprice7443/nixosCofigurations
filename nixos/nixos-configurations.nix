@@ -9,7 +9,6 @@ in
     modules = [
       ../hosts/linux-framework/configuration.nix
       {
-        nixpkgs.overlays = [ self.overlays.noctalia ];
         nixpkgs.config.allowUnfree = true;
       }
     ];
