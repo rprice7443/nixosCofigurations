@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  home.packages = [ pkgs.mako ];
-
-  xdg.configFile."mako/config".source = ../../xdgConfig/mako/config;
+  config = lib.mkIf config.common.desktop.enable {
+    home.packages = [ pkgs.mako ];
+  };
 }

@@ -1,4 +1,4 @@
 flakeInputs:
 {
-  framework = import ../hosts/linux-framework/home.nix;
+  default = import ./default.nix;
 }

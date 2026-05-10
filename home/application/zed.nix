@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  programs.zed-editor = {
-    enable = true;
-    installRemoteServer = true;
+  config = lib.mkIf config.common.applications.enable {
+    programs.zed-editor = {
+      enable = true;
+      installRemoteServer = true;
+    };
   };
 }

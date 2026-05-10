@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  home.packages = [ pkgs.fuzzel ];
-
-  xdg.configFile."fuzzel/fuzzel.ini".source = ../../xdgConfig/fuzzel/fuzzel.ini;
+  config = lib.mkIf config.common.desktop.enable {
+    home.packages = [ pkgs.fuzzel ];
+  };
 }

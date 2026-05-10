@@ -1,5 +1,5 @@
 {
-  description = "Riley's system configs";
+  description = "Riley's common NixOS and home-manager modules";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -7,10 +7,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = flakeInputs: {
-    overlays = import ./overlays.nix flakeInputs;
-    nixosConfigurations = import ./nixos/nixos-configurations.nix flakeInputs;
-    homeManagerModules = import ./home/home-modules.nix flakeInputs;
-    homeConfigurations = import ./home/home-configurations.nix flakeInputs;
+  outputs = { self, ... }:
+  {
+    homeManagerModules = import ./home/home-modules.nix { inherit self; };
+    nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
   };
 }

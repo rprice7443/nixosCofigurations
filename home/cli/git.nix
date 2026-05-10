@@ -1,22 +1,36 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+let cfg = config.common.git; in
 {
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    settings = {
-      user.name = "Riley Price";
-      user.email = "rprice7443@gmail.com";
-      init.defaultBranch = "main";
-      push.autoSetupRemote = "true";
+  options.common.git = {
+    enable = lib.mkEnableOption "git configuration";
+    userName = lib.mkOption {
+      type = lib.types.str;
+      description = "Git user name.";
+    };
+    userEmail = lib.mkOption {
+      type = lib.types.str;
+      description = "Git user email.";
+    };
+  };
 
-      alias = {
-        "ps" = "push";
-        "a" = "add .";
-        "st" = "status";
-        "pl" = "pull";
-        "sw" = "switch";
-        "sc" = "switch -c";
-        "c" = "commit -m";
+  config = lib.mkIf cfg.enable {
+    programs.git = {
+      enable = true;
+      lfs.enable = true;
+      settings = {
+        user.name = cfg.userName;
+        user.email = cfg.userEmail;
+        init.defaultBranch = "main";
+        push.autoSetupRemote = "true";
+        alias = {
+          "ps" = "push";
+          "a" = "add .";
+          "st" = "status";
+          "pl" = "pull";
+          "sw" = "switch";
+          "sc" = "switch -c";
+          "c" = "commit -m";
+        };
       };
     };
   };
