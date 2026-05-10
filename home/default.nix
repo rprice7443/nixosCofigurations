@@ -21,6 +21,7 @@ let
 in
 {
   imports = [
+    ./packages.nix
     ./cli/git.nix
     ./cli/zsh.nix
     ./cli/helix.nix
@@ -45,6 +46,7 @@ in
       default = null;
       description = "Path to a host-specific source tree containing an xdgConfig/ subdirectory. Files here override those from common src.";
     };
+    packages.enable = lib.mkEnableOption "standard home packages";
     cli.enable = lib.mkEnableOption "common CLI tools (zsh, helix, tmux, fzf, latex)";
     applications.enable = lib.mkEnableOption "common GUI applications (vscode, zed, joplin, zathura)";
     desktop.enable = lib.mkEnableOption "common desktop environment (niri, waybar, mako, fuzzel)";
