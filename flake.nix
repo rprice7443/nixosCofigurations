@@ -10,10 +10,11 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = inputs@{
+    self,
     flake-parts,
     home-manager,
     nixpkgs,
@@ -34,6 +35,7 @@
     ];
 
     perSystem = {config, pkgs, ...}: {
-      treefmt = import ./treefmt.nix {inherit nixpkgs treefmt-nix};
+      treefmt = import ./treefmt.nix {inherit nixpkgs treefmt-nix;};
     };
+  };
 }
