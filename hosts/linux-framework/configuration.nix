@@ -139,6 +139,29 @@
       zlib
       openssl
       glib
+      stdenv.cc.cc
+      fuse
+      nss
+      nspr
+      atk
+      cups
+      libdrm
+      gtk3
+      pango
+      cairo
+      xorg.libX11
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXrandr
+      xorg.libxcb
+      mesa
+      expat
+      xorg.libxkbfile
+      xorg.libXtst
+      alsa-lib
+      udev
     ];
 
   };
