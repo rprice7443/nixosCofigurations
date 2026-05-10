@@ -1,18 +1,45 @@
 {
-  description = "Riley's system configs";
+  description = "Riley's common NixOS and home-manager modules";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
   };
 
-  outputs = flakeInputs: {
-    overlays = import ./overlays.nix flakeInputs;
-    nixosConfigurations = import ./nixos/nixos-configurations.nix flakeInputs;
-    homeManagerModules = import ./home/home-modules.nix flakeInputs;
-    homeConfigurations = import ./home/home-configurations.nix flakeInputs;
-  };
+  outputs =
+    inputs@{
+      self,
+      flake-parts,
+      home-manager,
+      nixpkgs,
+      treefmt-nix,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.home-manager.flakeModules.home-manager
+        inputs.treefmt-nix.flakeModule
+      ];
+      flake = {
+        homeModules = import ./home/home-modules.nix { inherit self; };
+        nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
+      };
+
+      systems = [
+        "x86_64-linux"
+      ];
+
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          treefmt = import ./treefmt.nix;
+        };
+    };
 }

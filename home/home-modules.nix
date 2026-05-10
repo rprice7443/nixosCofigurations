@@ -1,4 +1,3 @@
-flakeInputs:
-{
-  framework = import ../hosts/linux-framework/home.nix;
+flakeInputs: {
+  default = import ./default.nix;
 }

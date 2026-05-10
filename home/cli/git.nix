@@ -1,23 +1,11 @@
-{ config, pkgs, ... }:
 {
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    settings = {
-      user.name = "Riley Price";
-      user.email = "rprice7443@gmail.com";
-      init.defaultBranch = "main";
-      push.autoSetupRemote = "true";
-
-      alias = {
-        "ps" = "push";
-        "a" = "add .";
-        "st" = "status";
-        "pl" = "pull";
-        "sw" = "switch";
-        "sc" = "switch -c";
-        "c" = "commit -m";
-      };
-    };
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  config = lib.mkIf config.common.cli.enable {
+    programs.git.enable = true;
   };
 }
