@@ -138,6 +138,7 @@
       stdenv.cc.cc.lib
       zlib
       openssl
+      glib
     ];
 
   };
