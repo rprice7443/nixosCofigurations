@@ -12,7 +12,6 @@
       firefox
 
       # Communication
-      element-desktop
       signal-desktop
 
       # Learning
