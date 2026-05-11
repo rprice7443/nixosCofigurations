@@ -4,7 +4,7 @@
   "height": 34,
   "modules-left": ["niri/workspaces", "wlr/taskbar"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery", "tray"],
+  "modules-right": ["niri/language", "pulseaudio", "network", "battery", "tray"],
 
   "niri/workspaces": {
     "format": "{name}",
@@ -41,6 +41,9 @@
     "format-disconnected": "offline",
     "format-linked": "no IP",
     "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}% signal"
+  },
+  "niri/language": {
+    "format": "KBD {short}"
   },
   "pulseaudio": {
     "format": "VOL {volume}%",
