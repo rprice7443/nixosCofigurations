@@ -1,5 +1,7 @@
 { config, lib, ... }:
 let
+  colors = (import ./colors.nix).tokyoNight;
+
   # Recursively enumerate all files under a directory, returning relative paths.
   listFilesRecursive =
     dir:
@@ -14,6 +16,14 @@ let
     in
     lib.flatten (lib.mapAttrsToList process entries);
 
+  processFile =
+    path:
+    let
+      content = builtins.readFile path;
+      keys = builtins.attrNames colors;
+    in
+    builtins.replaceStrings (map (k: "@${k}@") keys) (map (k: colors.${k}) keys) content;
+
   # Build a xdg.configFile attrset from an xdgConfig/ directory inside src.
   xdgFiles =
     src:
@@ -24,7 +34,7 @@ let
       map (f: {
         name = f;
         value = {
-          source = "${xdgDir}/${f}";
+          text = processFile "${xdgDir}/${f}";
         };
       }) (listFilesRecursive xdgDir)
     );
