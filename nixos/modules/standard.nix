@@ -65,20 +65,20 @@
           gtk3
           pango
           cairo
-          xorg.libX11
-          xorg.libXt
-          xorg.libXcomposite
-          xorg.libXdamage
-          xorg.libXext
-          xorg.libXfixes
-          xorg.libXrandr
-          xorg.libxcb
+          libX11
+          libXt
+          libXcomposite
+          libXdamage
+          libXext
+          libXfixes
+          libXrandr
+          libxcb
           mesa
           libgbm
           libGL
           expat
-          xorg.libxkbfile
-          xorg.libXtst
+          libxkbfile
+          libXtst
           alsa-lib
           udev
         ];

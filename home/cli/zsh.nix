@@ -15,8 +15,9 @@
         enable = true;
         plugins = [ "git" ];
       };
-      initExtra = ''
+      initContent = ''
         source "$HOME/.config/zsh/rc.zsh"
+        source "$HOME/.config/zsh/hostrc.zsh"
       '';
     };
   };
