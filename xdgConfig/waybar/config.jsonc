@@ -43,7 +43,7 @@
     "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}% signal"
   },
   "niri/language": {
-    "format": "KBD {short}"
+    "format": "KBD {long}"
   },
   "pulseaudio": {
     "format": "VOL {volume}%",
