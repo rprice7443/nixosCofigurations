@@ -1,5 +1,8 @@
 alias ll="ls -alh"
 alias ..="cd .."
+alias jfu="journalctl -f -u"
+alias ssr="sudo systemctl restart"
+alias gac="git add . && git commit -m"
 
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
