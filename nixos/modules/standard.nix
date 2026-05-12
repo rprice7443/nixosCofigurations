@@ -38,6 +38,10 @@
       hardware.opengl.enable = true;
       services.envfs.enable = true;
 
+      programs.xwayland.enable = true;
+      programs.mosh.enable = true;
+      programs.zsh.enable = true;
+
       environment.systemPackages = with pkgs; [
         vim
         wget
