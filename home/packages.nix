@@ -19,12 +19,17 @@
 
       # Terminal mainstays
       atuin
+      gh
       bat
       btop
       ghostty
       git
       git-lfs
       helix
+      tree
+      unzip
+      picocom
+      lazygit
       jq
       ripgrep
       starship
@@ -47,7 +52,14 @@
       rust-analyzer
       uv
       zed-editor
+      cachix
       zls
+      uv
+      k9s
+      python3
+      grpcurl
+      openssl
+      dig
 
       # Wayland desktop
       kanshi
