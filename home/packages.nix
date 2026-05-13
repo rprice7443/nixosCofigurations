@@ -72,7 +72,6 @@
 
       # Media and files
       ffmpeg
-      pasystray
       pavucontrol
       pulsemixer
       unzip
