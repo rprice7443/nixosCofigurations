@@ -28,6 +28,14 @@ let
     blue-rgba-15 = "rgba(122, 162, 247, 0.15)";
     blue-rgba-20 = "rgba(122, 162, 247, 0.2)";
     red-rgba-20 = "rgba(247, 118, 142, 0.2)";
+
+    background-bare = bare background;
+    surface-bare = bare surface;
+    blue-bare = bare blue;
+    purple-bare = bare purple;
+    green-bare = bare green;
+    red-bare = bare red;
+    foreground-bare = bare foreground;
   };
 in
 {
