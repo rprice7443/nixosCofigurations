@@ -89,6 +89,8 @@
       picocom
       rainfrog
       sshpass
+      nftables
+      bpftools
 
       # Miscellaneous
       grip
