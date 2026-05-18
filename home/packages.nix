@@ -42,6 +42,7 @@
       # Development
       cargo
       clang
+      gopls
       forgejo-cli
       go
       just
@@ -92,6 +93,11 @@
       sshpass
       nftables
       bpftools
+      kubectl
+      jq
+      taplo
+      jaq
+      blueman
 
       # Miscellaneous
       grip
