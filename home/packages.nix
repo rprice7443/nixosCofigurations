@@ -91,13 +91,19 @@
       picocom
       rainfrog
       sshpass
-      nftables
+      openssl
+      stun
+      traceroute
       bpftools
       kubectl
       jq
       taplo
       jaq
       blueman
+      tcpdump
+      nftables
+      tshark
+      ethtool
 
       # Miscellaneous
       grip
