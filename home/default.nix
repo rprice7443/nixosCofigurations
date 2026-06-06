@@ -48,6 +48,7 @@ in
     ./cli/tmux.nix
     ./cli/fzf.nix
     ./cli/latex.nix
+    ./cli/fish.nix
     ./application/zed.nix
     ./application/joplin.nix
     ./application/zathura.nix
