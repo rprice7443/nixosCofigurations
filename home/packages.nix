@@ -68,6 +68,7 @@
       sway
       swaybg
       swaylock
+      waypipe
       wdisplays
       xwayland-satellite
 
