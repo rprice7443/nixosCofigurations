@@ -33,7 +33,43 @@
       time.timeZone = config.common.timezone;
       i18n.defaultLocale = config.common.locale;
 
-      fonts.enableDefaultPackages = true;
+      fonts = {
+        enableDefaultPackages = true;
+        packages = with pkgs; [
+          noto-fonts
+          noto-fonts-cjk-sans
+          noto-fonts-cjk-serif
+          noto-fonts-color-emoji
+          liberation_ttf
+          nerd-fonts.jetbrains-mono
+        ];
+        fontconfig = {
+          defaultFonts = {
+            sans-serif = [
+              "Noto Sans"
+              "Noto Sans CJK SC"
+              "Noto Sans CJK TC"
+              "Noto Sans CJK JP"
+              "Noto Sans CJK KR"
+            ];
+            serif = [
+              "Noto Serif"
+              "Noto Serif CJK SC"
+              "Noto Serif CJK TC"
+              "Noto Serif CJK JP"
+              "Noto Serif CJK KR"
+            ];
+            monospace = [
+              "JetBrainsMono Nerd Font"
+              "Noto Sans Mono CJK SC"
+              "Noto Sans Mono CJK TC"
+              "Noto Sans Mono CJK JP"
+              "Noto Sans Mono CJK KR"
+            ];
+            emoji = [ "Noto Color Emoji" ];
+          };
+        };
+      };
       security.polkit.enable = true;
       hardware.opengl.enable = true;
       services.envfs.enable = true;
