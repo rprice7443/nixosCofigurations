@@ -45,7 +45,7 @@
         ];
         fontconfig = {
           defaultFonts = {
-            sans-serif = [
+            sansSerif = [
               "Noto Sans"
               "Noto Sans CJK SC"
               "Noto Sans CJK TC"
@@ -71,7 +71,7 @@
         };
       };
       security.polkit.enable = true;
-      hardware.opengl.enable = true;
+      hardware.graphics.enable = true;
       services.envfs.enable = true;
 
       programs.xwayland.enable = true;

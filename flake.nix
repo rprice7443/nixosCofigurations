@@ -30,6 +30,22 @@
       flake = {
         homeModules = import ./home/home-modules.nix { inherit self; };
         nixosModules = import ./nixos/nixos-modules.nix { inherit self; };
+
+        nixosConfigurations.check = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            self.nixosModules.standard
+            self.nixosModules.gnome
+            (
+              { modulesPath, ... }:
+              {
+                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                boot.loader.grub.enable = false;
+                fileSystems."/".device = "nodev";
+              }
+            )
+          ];
+        };
       };
 
       systems = [
